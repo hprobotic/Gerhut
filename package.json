@@ -1,0 +1,23 @@
+{
+  "name": "msft-stock",
+  "version": "1.0.0",
+  "description": "ASCII line chart of MSFT stock.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --require dotenv/config .",
+    "test": "standard"
+  },
+  "repository": "git@github.com:Gerhut/Gerhut.git",
+  "author": "George Cheng <Gerhut@GMail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "asciichart": "^1.5.21",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}
