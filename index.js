@@ -14,7 +14,7 @@ async function main (alphaVantageAPIKey) {
 
   const data = await response.json()
   const meta = data['Meta Data']
-  const series = data['Time Series (60min)']
+  const series = data['Time Series (Daily)']
   const prices = Object.keys(series).sort().map(function (time) {
     const price = Number(series[time]['4. close'])
     return Number.isFinite(price) ? price : undefined
