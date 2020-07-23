@@ -3,10 +3,9 @@ const fetch = require('node-fetch')
 
 async function main (alphaVantageAPIKey) {
   const url = new URL('/query', 'https://www.alphavantage.co/')
-  url.searchParams.set('apikey', alphaVantageAPIKey)
-  url.searchParams.set('function', 'TIME_SERIES_INTRADAY')
+  url.searchParams.set('function', 'TIME_SERIES_DAILY')
   url.searchParams.set('symbol', 'MSFT')
-  url.searchParams.set('interval', '60min')
+  url.searchParams.set('apikey', alphaVantageAPIKey)
 
   const response = await fetch(url.toString())
   if (!response.ok) {
@@ -21,7 +20,7 @@ async function main (alphaVantageAPIKey) {
     return Number.isFinite(price) ? price : undefined
   })
 
-  return `${asciichart.plot(prices)}\n\nLast Refreshed: ${meta['3. Last Refreshed']} ${meta['6. Time Zone']}`
+  return `${asciichart.plot(prices)}\n\nLast Refreshed: ${meta['3. Last Refreshed']}`
 }
 
 if (require.main === module) {
