@@ -20,7 +20,8 @@ async function main (alphaVantageAPIKey) {
     return Number.isFinite(price) ? price : undefined
   })
 
-  return `${asciichart.plot(prices)}\n\nLast Refreshed: ${meta['3. Last Refreshed']}`
+  const chart = asciichart.plot(prices, { height: 20 })
+  return `${chart}\n\n> Last Refreshed: ${meta['3. Last Refreshed']}`
 }
 
 if (require.main === module) {
